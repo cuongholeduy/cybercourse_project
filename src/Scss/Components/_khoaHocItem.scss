@@ -1,0 +1,22 @@
+.khoaHocItem {
+  .card {
+    border: none;
+    img {
+      height: 200px;
+      width: 100%;
+    }
+    .card-body {
+      background-color: $color-purple;
+      height: 100px;
+      text-align: center;
+      .card-title {
+        @include text($color-white, $fs-20, normal);
+      }
+    }
+    button {
+      @extend .button_1;
+      border: none;
+      border-radius: 0;
+    }
+  }
+}

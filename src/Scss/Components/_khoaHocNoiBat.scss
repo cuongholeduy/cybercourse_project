@@ -1,0 +1,36 @@
+.khoaHocNoiBat {
+  margin-top: $m-5rem;
+  h2 {
+    @include text($color-purple, $fs-40, bold);
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .slick-slider {
+    .slick-prev {
+      &::before {
+        color: $color-purple;
+        font-size: 2rem;
+      }
+    }
+    .slick-next {
+      &::before {
+        color: $color-purple;
+        font-size: 2rem;
+      }
+    }
+    .slick-dots {
+      .slick-active {
+        button {
+          &::before {
+            color: $color-purple;
+          }
+        }
+      }
+    }
+  }
+  @include MediaQuery($sm) {
+    h2 {
+      @include text($color-purple, $fs-30, bold);
+    }
+  }
+}

@@ -1,0 +1,2 @@
+export const SET_DANH_DACH_KHOA_HOC = "khoaHoc/SET_DANH_DACH_KHOA_HOC";
+export const SET_DANH_MUC_KHOA_HOC = "khoaHoc/SET_DANH_MUC_KHOA_HOC";

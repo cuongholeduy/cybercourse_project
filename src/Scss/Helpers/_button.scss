@@ -1,0 +1,12 @@
+.button_1 {
+  background-color: $color-pink;
+  color: $color-white;
+  text-transform: capitalize;
+  font-weight: bold;
+  &:hover {
+    background-color: $color-orange;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}

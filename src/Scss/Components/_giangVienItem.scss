@@ -1,0 +1,16 @@
+.giangVienItem {
+  .card {
+    border: none;
+    margin: 10px 0 10px;
+    img {
+      height: 350px;
+      width: 100%;
+    }
+    .card-body {
+      background-color: $color-purple;
+      .card-title {
+        @include text($color-white, $fs-25, normal);
+      }
+    }
+  }
+}

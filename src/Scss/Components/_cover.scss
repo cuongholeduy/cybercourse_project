@@ -1,0 +1,53 @@
+.cover {
+  background-image: url(../../Assets/Images/cover.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  .cover__content {
+    .cover__content__heading {
+      background-color: $color-purple;
+      margin-bottom: $m-15;
+      border-radius: 15px;
+      border: 3px solid $color-orange;
+      h2 {
+        @include text($color-white, 4rem, normal);
+        text-transform: capitalize;
+        padding: 10px 20px;
+      }
+    }
+    button {
+      @extend .button_1;
+    }
+  }
+  @include MediaQuery($sm) {
+    height: 400px;
+    .cover__content {
+      .cover__content__heading {
+        h2 {
+          @include text($color-white, 2rem, normal);
+          margin: 0;
+        }
+      }
+      button {
+        font-size: $fs-16;
+      }
+    }
+  }
+  @include MediaQuery($xs) {
+    height: 200px;
+    .cover__content {
+      .cover__content__heading {
+        h2 {
+          @include text($color-white, 1rem, normal);
+          margin: 0;
+          padding: 5px 10px;
+        }
+      }
+      button {
+        font-size: 10px;
+        padding: $m-5 $m-10;
+      }
+    }
+  }
+}

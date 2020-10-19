@@ -1,0 +1,14 @@
+.doiNguGiangVien {
+  margin-top: $m-5rem;
+  margin-bottom: $m-5rem;
+  h2 {
+    @include text($color-purple, $fs-40, bold);
+    text-align: center;
+    text-transform: capitalize;
+  }
+  @include MediaQuery($sm) {
+    h2 {
+      @include text($color-purple, $fs-30, bold);
+    }
+  }
+}

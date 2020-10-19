@@ -1,0 +1,16 @@
+.banner {
+  .banner__content {
+    background-color: $color-purple;
+    text-align: center;
+    .banner-icon {
+      color: $color-orange;
+      font-size: 2.5rem;
+    }
+    p {
+      margin-top: 15px;
+      color: $color-white;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}

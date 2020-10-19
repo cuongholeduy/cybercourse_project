@@ -1,0 +1,62 @@
+.header {
+  background: $color-purple;
+  border-bottom: 3px solid $color-orange;
+  .navbar-brand {
+    @include text($color-white, $fs-25, bold);
+    & > span {
+      color: $color-orange;
+    }
+  }
+  .navbar-icon {
+    color: $color-orange;
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        @include text($color-white, $fs-16, normal);
+        text-transform: capitalize;
+        &:hover {
+          color: $color-orange;
+        }
+      }
+    }
+    .dropdown-menu {
+      background: $color-purple;
+      border: none;
+      .dropdown-item {
+        @extend .button_1;
+        background-color: $color-purple;
+      }
+    }
+  }
+  .input-group {
+    width: 50%;
+    margin-right: $m-10;
+    input {
+      &:focus {
+        box-shadow: 0 0 2px 0.2rem $color-orange;
+      }
+    }
+    .input-group-append {
+      button {
+        @extend .button_1;
+        border: none;
+        & > .search-icon {
+          font-size: $fs-25;
+        }
+      }
+    }
+  }
+  .navbar-button {
+    button {
+      @extend .button_1;
+      margin: $m-5 $m-10 $m-5 0;
+    }
+  }
+
+  @include MediaQuery($xs) {
+    .input-group {
+      width: 100%;
+    }
+  }
+}
