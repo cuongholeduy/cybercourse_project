@@ -5,6 +5,7 @@
   font-weight: bold;
   &:hover {
     background-color: $color-orange;
+    color: $color-white;
   }
   &:focus {
     box-shadow: none;

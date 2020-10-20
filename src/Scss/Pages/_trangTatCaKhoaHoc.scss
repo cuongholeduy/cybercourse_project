@@ -1,0 +1,13 @@
+.trangTatCaKhoaHoc {
+  h1 {
+    @include text($color-purple, $fs-40, bold);
+    text-transform: capitalize;
+  }
+  .pagination {
+    justify-content: center;
+    button {
+      @extend .button_1;
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.khoaHocDaDangKy {
+  h1 {
+    @include text($color-purple, $fs-30, bold);
+    text-transform: capitalize;
+  }
+  .khoaHocDaDangKy__item {
+    border: 1px solid $color-purple;
+    height: 130px;
+    border-radius: 15px;
+    padding: 10px 10px 0 10px;
+    margin: 10px 0 10px 0;
+    text-align: center;
+    align-items: center;
+    h4 {
+      @include text($color-purple, $fs-16, normal);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    button {
+      @extend .button_1;
+    }
+  }
+}

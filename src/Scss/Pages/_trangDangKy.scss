@@ -1,0 +1,16 @@
+.trangDangKy {
+  h2 {
+    @include text($color-purple, $fs-40, normal);
+    text-transform: capitalize;
+  }
+  form {
+    .form-group {
+      label {
+        @include text($color-purple, $fs-16, bold);
+      }
+    }
+    button {
+      @extend .button_1;
+    }
+  }
+}

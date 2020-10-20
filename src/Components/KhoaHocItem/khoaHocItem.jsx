@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardBody, CardTitle, Button } from "reactstrap";
+import { withRouter } from "react-router-dom";
 
 class KhoaHocItem extends Component {
+  handleXemChiTiet = () => {
+    this.props.history.push("/chitietkhoahoc/" + this.props.item.maKhoaHoc);
+  };
+
   render() {
     const { hinhAnh, tenKhoaHoc } = this.props.item;
     return (
@@ -11,11 +16,11 @@ class KhoaHocItem extends Component {
           <CardBody>
             <CardTitle>{tenKhoaHoc}</CardTitle>
           </CardBody>
-          <Button>Chi Tiết</Button>
+          <Button onClick={this.handleXemChiTiet}>Chi Tiết</Button>
         </Card>
       </div>
     );
   }
 }
 
-export default KhoaHocItem;
+export default withRouter(KhoaHocItem);

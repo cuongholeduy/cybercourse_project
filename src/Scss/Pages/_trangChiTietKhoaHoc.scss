@@ -1,0 +1,45 @@
+.chiTietKhoaHoc {
+  .chiTietKhoaHoc__header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .chiTietKhoaHoc__header__content {
+      background-color: $color-black;
+      padding: 50px 0 50px;
+      img {
+        height: 300px;
+        width: 100%;
+      }
+      h2 {
+        @include text($color-orange, $fs-30, bold);
+        text-transform: capitalize;
+      }
+      p {
+        @include text($color-white, $fs-16, normal);
+      }
+      button {
+        @extend .button_1;
+        > a {
+          color: $color-white;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .chiTietKhoaHoc__body {
+    h2 {
+      @include text($color-purple, $fs-30, bold);
+      text-transform: capitalize;
+    }
+    h3 {
+      @include text($color-orange, $fs-30, normal);
+    }
+    p {
+      @include text($color-purple, $fs-20, normal);
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+  }
+}

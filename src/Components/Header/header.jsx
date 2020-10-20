@@ -1,21 +1,20 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
 import ReorderIcon from "@material-ui/icons/Reorder";
-import SearchIcon from "@material-ui/icons/Search";
 import { connect } from "react-redux";
 import { fetchDanhMucKhoaHoc } from "../../Redux/Action/khoaHoc";
+import { Link, withRouter } from "react-router-dom";
+import DanhMucKhoaHoc from "../DanhMucKhoaHoc/danhMucKhoaHoc";
+import Swal from "sweetalert2";
 
 class Header extends Component {
   state = {
@@ -28,14 +27,26 @@ class Header extends Component {
     });
   };
 
+  handleDangXuat = () => {
+    localStorage.clear();
+
+    Swal.fire({
+      position: "center",
+      title: "Đăng xuất thành công",
+      icon: "success",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+
+    setTimeout(() => {
+      this.props.history.push("/");
+      this.props.history.go("/");
+    }, 1500);
+  };
+
   renderDanhMucKhoaHoc = () => {
     return this.props.danhMucKhoaHoc.map((item, index) => {
-      return (
-        <Fragment key={index}>
-          <DropdownItem>{item.tenDanhMuc}</DropdownItem>
-          <DropdownItem divider />
-        </Fragment>
-      );
+      return <DanhMucKhoaHoc key={index} item={item} />;
     });
   };
 
@@ -43,16 +54,18 @@ class Header extends Component {
     return (
       <div className="header sticky-top">
         <Navbar className="container" expand="xl">
-          <NavbarBrand href="/">
+          <Link className="navbar-brand" to="/">
             Cyber<span>Course</span>
-          </NavbarBrand>
+          </Link>
           <NavbarToggler onClick={this.toggle}>
             <ReorderIcon className="navbar-icon"></ReorderIcon>
           </NavbarToggler>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Khóa học</NavLink>
+                <Link className="nav-link" to="/tatcakhoahoc">
+                  Khóa học
+                </Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -63,22 +76,26 @@ class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
-            <div className="input-group mt-2">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Tìm kiếm khóa học"
-              />
-              <div className="input-group-append">
-                <button className="btn" type="submit">
-                  <SearchIcon className="search-icon" />
+
+            {this.props.isLogin ? (
+              <div className="navbar-button">
+                <Link to="/thongtintaikhoan">
+                  <button className="btn">Tài khoản</button>
+                </Link>
+                <button onClick={this.handleDangXuat} className="btn">
+                  Đăng xuất
                 </button>
               </div>
-            </div>
-            <div className="navbar-button mt-2">
-              <button className="btn">Đăng nhập</button>
-              <button className="btn">Đăng ký</button>
-            </div>
+            ) : (
+              <div className="navbar-button">
+                <Link to="/dangnhap">
+                  <button className="btn">Đăng nhập</button>
+                </Link>
+                <Link to="/dangky">
+                  <button className="btn">Đăng ký</button>
+                </Link>
+              </div>
+            )}
           </Collapse>
         </Navbar>
       </div>
@@ -93,7 +110,8 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     danhMucKhoaHoc: state.khoaHoc.danhMucKhoaHoc,
+    isLogin: !!state.user.token,
   };
 };
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

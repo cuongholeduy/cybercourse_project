@@ -1,0 +1,27 @@
+.trangThongTinTaiKhoan {
+  h2 {
+    @include text($color-purple, $fs-30, normal);
+    text-transform: capitalize;
+  }
+  form {
+    .form-group {
+      padding: 10px;
+      label {
+        @include text($color-purple, $fs-16, bold);
+        display: block;
+      }
+      input {
+        width: 100%;
+      }
+    }
+    button {
+      @extend .button_1;
+    }
+  }
+  hr {
+    margin-top: 50px;
+    background: $color-purple;
+    height: 1px;
+    width: 200px;
+  }
+}

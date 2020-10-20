@@ -1,0 +1,6 @@
+.trangKhoaHocDanhMuc {
+  h1 {
+    @include text($color-purple, $fs-40, bold);
+    text-transform: capitalize;
+  }
+}

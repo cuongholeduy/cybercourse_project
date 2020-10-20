@@ -1,9 +1,9 @@
 .khoaHocItem {
   .card {
-    border: none;
     img {
       height: 200px;
       width: 100%;
+      border: 1px solid $color-purple;
     }
     .card-body {
       background-color: $color-purple;

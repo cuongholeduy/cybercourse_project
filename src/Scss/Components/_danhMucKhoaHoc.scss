@@ -1,0 +1,9 @@
+.danhMucKhoaHoc {
+  .dropdown-item {
+    @extend .button_1;
+    background-color: $color-purple;
+    &:hover {
+      color: $color-white;
+    }
+  }
+}

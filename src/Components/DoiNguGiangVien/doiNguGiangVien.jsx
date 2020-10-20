@@ -9,7 +9,7 @@ const data = [
   { tenGiangVien: "Jane", hinhAnh: giangVien1 },
   { tenGiangVien: "Jonas", hinhAnh: giangVien2 },
   { tenGiangVien: "Emily", hinhAnh: giangVien3 },
-  { tenGiangVien: "Daisy", hinhAnh: giangVien4 },
+  { tenGiangVien: "David", hinhAnh: giangVien4 },
 ];
 
 class DoiNguGianVien extends Component {

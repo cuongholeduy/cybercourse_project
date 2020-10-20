@@ -23,10 +23,6 @@
     .dropdown-menu {
       background: $color-purple;
       border: none;
-      .dropdown-item {
-        @extend .button_1;
-        background-color: $color-purple;
-      }
     }
   }
   .input-group {
