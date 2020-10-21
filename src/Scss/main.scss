@@ -17,6 +17,9 @@
 @import "./Components/footer";
 @import "./Components/danhMucKhoaHoc";
 @import "./Components/khoaHocDaDangKy";
+@import "./Components/adminSidebar";
+@import "./Components/modalNguoiDung";
+@import "./Components/modalKhoaHoc";
 
 // Pages
 @import "./Pages/trangTatCaKhoaHoc";
@@ -25,3 +28,5 @@
 @import "./Pages/trangDangKy";
 @import "./Pages/trangDangNhap";
 @import "./Pages/trangThongTinTaiKhoan";
+@import "./Pages/trangQuanLyNguoiDung";
+@import "./Pages/trangQuanLyKhoaHoc";

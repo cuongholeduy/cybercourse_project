@@ -1,0 +1,29 @@
+.adminSidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $color-purple;
+  overflow-x: hidden;
+  padding-top: 20px;
+  h2 {
+    @include text($color-orange, $fs-30, bold);
+  }
+  .adminSidebar__item {
+    a {
+      @include text($color-white, $fs-20, normal);
+      padding: $p-10 $p-15 $p-10 $p-15;
+      margin: $m-15 0;
+      text-decoration: none;
+      display: block;
+      &:hover {
+        color: $color-orange;
+      }
+    }
+    .active {
+      color: $color-orange;
+    }
+  }
+}

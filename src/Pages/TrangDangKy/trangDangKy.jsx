@@ -24,7 +24,6 @@ const signupUserSchema = yup.object().shape({
 
 class TrangDangKy extends Component {
   handleSubmitDangKy = (values) => {
-    console.log(values);
     this.props.dispatch(
       dangKyTaiKhoan(values, () => {
         this.props.history.push("/dangnhap");
@@ -35,7 +34,7 @@ class TrangDangKy extends Component {
   render() {
     return (
       <div className="trangDangKy my-5 w-50 mx-auto">
-        <h2 className="text-center font-weight-bold mb-5">Đăng Ký tài khoản</h2>
+        <h2 className="text-center font-weight-bold mb-5">Đăng Ký</h2>
         <Formik
           validationSchema={signupUserSchema}
           initialValues={{

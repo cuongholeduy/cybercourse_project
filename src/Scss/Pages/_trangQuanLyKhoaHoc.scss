@@ -1,0 +1,26 @@
+.trangQuanLyKhoaHoc {
+  margin-left: 250px;
+  h1 {
+    @include text($color-purple, $fs-40, bold);
+    margin: $m-5rem 0;
+  }
+  .themKhoaHoc {
+    @extend .button_1;
+  }
+  table {
+    thead {
+      tr {
+        th {
+          color: $color-purple;
+        }
+      }
+    }
+  }
+  .pagination {
+    justify-content: center;
+    align-items: center;
+    button {
+      @extend .button_1;
+    }
+  }
+}

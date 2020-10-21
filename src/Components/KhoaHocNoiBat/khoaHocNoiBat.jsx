@@ -58,7 +58,7 @@ class KhoaHocNoiBat extends Component {
     };
 
     return (
-      <div className="khoaHocNoiBat">
+      <div className="khoaHocNoiBat container">
         <h2>Khóa học nổi bật</h2>
         <Slider className="mt-5 container" {...settings}>
           {this.renderKhoaHocNoiBat()}

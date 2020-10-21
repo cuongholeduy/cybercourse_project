@@ -1,6 +1,6 @@
 .trangDangKy {
   h2 {
-    @include text($color-purple, $fs-40, normal);
+    @include text($color-purple, $fs-30, normal);
     text-transform: capitalize;
   }
   form {

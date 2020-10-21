@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Scss/main.scss";
 import TrangChu from "./Pages/TrangChu/trangChu";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import TrangTatCaKhoaHoc from "./Pages/TrangTatCaKhoaHoc/trangTatCaKhoaHoc";
 import TrangChiTietKhoaHoc from "./Pages/TrangChiTietKhoaHoc/trangChiTietKhoaHoc";
 import TrangKhoaHocDanhMuc from "./Pages/TrangKhoaHocDanhMuc/trangKhoaHocDanhMuc";
@@ -11,9 +11,19 @@ import { connect } from "react-redux";
 import { createAction } from "./Redux/Action/createAction";
 import { SET_THONG_TIN_USER, SET_TOKEN } from "./Redux/Action/type";
 import TrangThongTinTaiKhoan from "./Pages/TrangThongTinTaiKhoan/trangThongTinTaiKhoan";
+import TrangQuanLyNguoiDung from "./Pages/TrangQuanLyNguoiDung/trangQuanLyNguoiDung";
+import TrangQuanLyKhoaHoc from "./Pages/TrangQuanLyKhoaHoc/trangQuanLyKhoaHoc";
 
 class App extends Component {
   render() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    let maLoaiNguoiDung;
+    if (user) {
+      maLoaiNguoiDung = user.maLoaiNguoiDung;
+    } else {
+      maLoaiNguoiDung = "";
+    }
+
     return (
       <BrowserRouter>
         <Switch>
@@ -26,6 +36,31 @@ class App extends Component {
           <Route path="/dangky" component={TrangDangKy} />
           <Route path="/dangnhap" component={TrangDangNhap} />
           <Route path="/thongtintaikhoan" component={TrangThongTinTaiKhoan} />
+
+          <Route path="/admin/quanlynguoidung">
+            {maLoaiNguoiDung === "GV" ? (
+              <TrangQuanLyNguoiDung />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+
+          <Route path="/admin/quanlykhoahoc">
+            {maLoaiNguoiDung === "GV" ? (
+              <TrangQuanLyKhoaHoc />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+
+          <Route path="/admin">
+            {maLoaiNguoiDung === "GV" ? (
+              <Redirect to="/admin/quanlynguoidung" />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+
           <Route path="/" component={TrangChu} />
         </Switch>
       </BrowserRouter>
