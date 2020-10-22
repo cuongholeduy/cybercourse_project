@@ -9,6 +9,7 @@ import {
   DropdownToggle,
   DropdownMenu,
 } from "reactstrap";
+import SearchIcon from "@material-ui/icons/Search";
 import ReorderIcon from "@material-ui/icons/Reorder";
 import { connect } from "react-redux";
 import { fetchDanhMucKhoaHoc } from "../../Redux/Action/khoaHoc";
@@ -24,6 +25,7 @@ class Header extends Component {
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
+      tuKhoa: "",
     });
   };
 
@@ -42,6 +44,17 @@ class Header extends Component {
       this.props.history.push("/");
       this.props.history.go("/");
     }, 1500);
+  };
+
+  handleChangeTimKiem = (event) => {
+    this.setState({
+      tuKhoa: event.target.value,
+    });
+  };
+
+  handleSubmitTimKiem = (event) => {
+    event.preventDefault();
+    this.props.history.push("/timkiem/" + this.state.tuKhoa);
   };
 
   renderDanhMucKhoaHoc = () => {
@@ -76,9 +89,25 @@ class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
+            <form
+              onSubmit={this.handleSubmitTimKiem}
+              className="input-group mt-2"
+            >
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Tìm kiếm khóa học"
+                onChange={this.handleChangeTimKiem}
+              />
+              <div className="input-group-append">
+                <button className="btn" type="submit">
+                  <SearchIcon className="search-icon" />
+                </button>
+              </div>
+            </form>
 
             {this.props.isLogin ? (
-              <div className="navbar-button">
+              <div className="navbar-button mt-2">
                 <Link to="/thongtintaikhoan">
                   <button className="btn">Tài khoản</button>
                 </Link>
@@ -87,7 +116,7 @@ class Header extends Component {
                 </button>
               </div>
             ) : (
-              <div className="navbar-button">
+              <div className="navbar-button mt-2">
                 <Link to="/dangnhap">
                   <button className="btn">Đăng nhập</button>
                 </Link>

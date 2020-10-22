@@ -13,6 +13,7 @@ import { SET_THONG_TIN_USER, SET_TOKEN } from "./Redux/Action/type";
 import TrangThongTinTaiKhoan from "./Pages/TrangThongTinTaiKhoan/trangThongTinTaiKhoan";
 import TrangQuanLyNguoiDung from "./Pages/TrangQuanLyNguoiDung/trangQuanLyNguoiDung";
 import TrangQuanLyKhoaHoc from "./Pages/TrangQuanLyKhoaHoc/trangQuanLyKhoaHoc";
+import TrangTimKiem from "./Pages/TrangTimKiem/trangTimKiem";
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
             component={TrangChiTietKhoaHoc}
           />
           <Route path="/danhmuc/:madanhmuc" component={TrangKhoaHocDanhMuc} />
+          <Route path="/timkiem/:tukhoa" component={TrangTimKiem} />
           <Route path="/dangky" component={TrangDangKy} />
           <Route path="/dangnhap" component={TrangDangNhap} />
           <Route path="/thongtintaikhoan" component={TrangThongTinTaiKhoan} />

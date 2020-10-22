@@ -5,10 +5,6 @@ import { fetchKhoaHocTheoDanhMuc } from "../../Redux/Action/khoaHoc";
 import KhoaHocItem from "../../Components/KhoaHocItem/khoaHocItem";
 
 class TrangKhoaHocDanhMuc extends Component {
-  state = {
-    maDanhMuc: this.props.match.params.madanhmuc,
-  };
-
   componentDidUpdate(prevProps) {
     if (
       this.props.match.params.madanhmuc !== prevProps.match.params.madanhmuc

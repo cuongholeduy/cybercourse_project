@@ -1,0 +1,5 @@
+.trangTimKiemKhoaHoc {
+  h1 {
+    @include text($color-purple, $fs-30, bold);
+  }
+}
