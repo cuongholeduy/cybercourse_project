@@ -42,12 +42,6 @@ const reducer = (state = initialState, action) => {
       return { ...state };
     }
     case SET_TIM_KIEM_TU_KHOA: {
-      // for (let item of state.danhSachKhoaHoc) {
-      //   let find = item.biDanh.indexOf(payload);
-      //   if (find !== -1) {
-      //     state.mangTimKiem.push(item);
-      //   }
-      // }
       state.mangTimKiem = payload;
       return { ...state };
     }
