@@ -184,19 +184,15 @@ export const adminFetchDanhMucKhoaHoc = (dispatch) => {
     });
 };
 
-export const themKhoaHoc = (value, khoaHoc, callback) => {
+export const themKhoaHoc = (value, callback) => {
   return (dispatch) => {
     createRequest({
       url:
-        "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/ThemKhoaHoc",
+        "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/ThemKhoaHocUploadHinh",
       method: "POST",
-      data: khoaHoc,
+      data: value,
     })
       .then((res) => {
-        let frm = new FormData();
-        frm.append("file", value.hinhAnh);
-        frm.append("tenKhoaHoc", res.data.tenKhoaHoc);
-
         Swal.fire({
           position: "center",
           title: "Thêm khóa học thành công",
@@ -210,16 +206,6 @@ export const themKhoaHoc = (value, khoaHoc, callback) => {
         }, 1500);
 
         dispatch(createAction(HIDE_MODAL_KHOA_HOC));
-
-        return createRequest({
-          url:
-            "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/UploadHinhAnhKhoaHoc",
-          method: "POST",
-          data: frm,
-        });
-      })
-      .then((res) => {
-        console.log(res);
       })
       .catch((err) => {
         console.log(err.response);
@@ -267,7 +253,6 @@ export const chinhSuaKhoaHoc = (value, khoaHoc, callback) => {
       data: khoaHoc,
     })
       .then((res) => {
-        console.log(res.data);
         let frm = new FormData();
         frm.append("file", value.hinhAnh);
         frm.append("tenKhoaHoc", res.data.tenKhoaHoc);

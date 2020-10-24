@@ -22,21 +22,23 @@ const themKhoaHocSchema = yup.object().shape({
 
 class ModalKhoaHoc extends Component {
   handleXacNhan = (value) => {
-    let khoaHoc = { ...value };
-    khoaHoc.hinhAnh = khoaHoc.hinhAnh.name;
-    // console.log(value, khoaHoc);
-    if (this.props.isSelected) {
-      // console.log("thêm khóa học");
+    const formData = new FormData();
 
-      //khoaHoc: hình ảnh là tên hình ảnh (string)
-      //value: hình ảnh là đối tượng hình ảnh (object)
+    for (let key in value) {
+      formData.append(key, value[key]);
+    }
+
+    if (this.props.isSelected) {
       this.props.dispatch(
-        themKhoaHoc(value, khoaHoc, () => {
+        themKhoaHoc(formData, () => {
           this.props.history.replace("/admin");
         })
       );
     } else {
-      // console.log("Sửa khóa học");
+      let khoaHoc = { ...value };
+      khoaHoc.hinhAnh = khoaHoc.hinhAnh.name;
+      // khoaHoc: hình ảnh là tên hình ảnh (string)
+      // value: hình ảnh là đối tượng hình ảnh (object)
       this.props.dispatch(
         chinhSuaKhoaHoc(value, khoaHoc, () => {
           this.props.history.replace("/admin");
